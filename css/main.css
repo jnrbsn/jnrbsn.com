@@ -132,7 +132,7 @@ body > header > nav > a {
 /* =Content
 -------------------------------------------------------------- */
 
-.breadcrumbs {
+#breadcrumbs {
     color: #999;
     font-size: 13px;
     margin-top: -10px
