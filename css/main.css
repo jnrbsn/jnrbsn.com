@@ -96,8 +96,8 @@ pre {
 code {
     background-color: #eee;
 }
-::-moz-selection { background: #ff5e99; color:#fff; text-shadow: none; }
-::selection { background:#ff5e99; color:#fff; text-shadow: none; }
+::-moz-selection { background: #ff5e99; color: #fff; text-shadow: none; }
+::selection { background: #ff5e99; color: #fff; text-shadow: none; }
 
 /* =Header
 -------------------------------------------------------------- */
@@ -135,7 +135,7 @@ body > header > nav > a {
 #breadcrumbs {
     color: #999;
     font-size: 13px;
-    margin-top: -10px
+    margin-top: -10px;
 }
 
 /* Blog posts */
