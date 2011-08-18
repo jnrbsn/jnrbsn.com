@@ -96,8 +96,8 @@ pre {
 code {
     background-color: #eee;
 }
-::-moz-selection { background: #ff5e99; color: #fff; text-shadow: none; }
-::selection { background: #ff5e99; color: #fff; text-shadow: none; }
+::-moz-selection { background-color: #ff5e99; color: #fff; text-shadow: none; }
+::selection { background-color: #ff5e99; color: #fff; text-shadow: none; }
 
 /* =Header
 -------------------------------------------------------------- */
