@@ -1,0 +1,6 @@
+markdown: rdiscount
+permalink: /:year/:month/:title
+title: jnrbsn.com
+url: http://jnrbsn.com
+subscribe: http://feeds.feedburner.com/jnrbsn
+exclude: [ README.md ]

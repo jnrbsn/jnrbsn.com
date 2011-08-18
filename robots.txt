@@ -1,0 +1,10 @@
+---
+layout: none
+---
+User-agent: *
+Disallow: /category/
+Disallow: /css/
+Disallow: /js/
+Disallow: /resources/
+
+Sitemap: {{ site.url }}/sitemap.xml

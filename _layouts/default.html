@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<title>{% if page.title != 'Home' %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ page.description }}" />
+<meta name="keywords" content="{{ page.categories | join: ',' }},{{ page.keywords | join: ',' }}" />
+<meta name="author" content="Jonathan Robson" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<link rel="shortcut icon" href="/resources/favicon.png" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ site.subscribe }}" />
+<link rel="stylesheet" type="text/css" href="/css/main.css" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/js/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+<header>
+<h1><a href="/">{{ site.title }}</a></h1>
+<nav>
+<a href="/">home</a> &bull;
+<a href="/about.html">about</a> &bull;
+<a href="http://twitter.com/jonathanrobson" rel="nofollow">twitter</a> &bull;
+<a id="subscribe-link" href="{{ site.subscribe }}" rel="nofollow">subscribe</a>
+</nav>
+</header>
+<section>
+{{ content }}
+</section>
+<footer>
+<p>Copyright &copy; 2009-{{ 'now' | date: '%Y' }} Jonathan Robson. Some rights reserved.</p>
+<p><a id="cc-logo" title="Creative Commons License" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"></a>
+Except where otherwise noted, content on this site is licensed under a<br />
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.</p>
+</footer>
+<script type="text/javascript" src="/js/main.js"></script>
+</body>
+</html>

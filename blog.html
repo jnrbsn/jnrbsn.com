@@ -1,0 +1,22 @@
+---
+layout: default
+title: Blog
+description: I'm a software developer, a mathematician, a technologist, and a hacker.
+  This is my blog.
+keywords:
+  - blog
+  - archive
+---
+<p class="breadcrumbs">
+<a href="/">Home</a>
+&rsaquo; Blog archive
+</p>
+<h2>Blog archive</h2>
+<ul class="post-list archive">
+{% assign post_year2 = '' %}
+{% for post in site.posts %}
+{% capture post_year1 %}{{ post.date | date: '%Y' }}{% endcapture %}
+{% if post_year1 != post_year2 %}<h3>{{ post_year1 }}</h3>{% assign post_year2 = post_year1 %}{% endif %}
+<li><span>{{ post.date | date: '%b %d %Y' }}</span> <a href="{{ post.url }}">{{ post.title }}</a></li>
+{% endfor %}
+</ul>
