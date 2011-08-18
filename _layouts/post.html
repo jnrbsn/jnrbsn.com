@@ -9,14 +9,16 @@ layout: default
 <article>
 <header>
 <h2><a title="Permalink to {{ page.title }}" href="{{ site.url }}{{ page.url }}">{{ page.title }}</a></h2>
-Posted by <a href="/about.html">Jonathan Robson</a> on {{ page.date | date_to_string }} in Kansas City, MO
+Posted by <a href="/about.html">Jonathan Robson</a>
+on <time datetime="{{ page.date | date: '%Y-%m-%d' }}" pubdate="pubdate">{{ page.date | date_to_string }}</time>
+in Kansas City, MO
 — <a id="dsq-comment-count" data-disqus-identifier="{{ page.url }}" href="{{ page.url }}#disqus_thread">0 comments</a>
 </header>
 {{ content }}
 <footer>
 <span id="share-buttons-label">Share this:</span><div id="share-buttons"></div>
 <p id="like-and-subscribe">Liked this post? Subscribe to my <a href="{{ site.subscribe }}" rel="nofollow">RSS feed</a>.</p>
-<p>Categories:&nbsp; {% for category in page.categories %}<a href="/category/{{ category }}">#{{ category }}</a>&nbsp; {% endfor %}</p>
+<p id="categories">Categories:&nbsp; {% for category in page.categories %}<a href="/category/{{ category }}">#{{ category }}</a>&nbsp; {% endfor %}</p>
 <div id="author-blurb">
 <img alt="Gravatar image" height="75" width="75" src="http://www.gravatar.com/avatar/08557ea48b0f92938bb0c01356ad606e?s=75" />
 <strong>About the author:</strong>
@@ -24,16 +26,14 @@ Jonathan Robson is a software developer, a mathematician, a technologist, and a 
 expertise in high end, database driven web development as well as Linux server administration,
 scripting, and automation. <a href="/about.html">Read more &rarr;</a>
 </div>
-<div class="related-posts">
+<section id="related-posts">
 <h3>Related posts</h3>
 <ul>
 {% for post in page.related %}
-<li><a href="{{ post.url }}">{{ post.title }}</a> <span>( {{ post.date | date: '%b %d, %Y' }} )</span></li>
+<li><a href="{{ post.url }}">{{ post.title }}</a> <time datetime="{{ post.date | date: '%Y-%m-%d' }}">( {{ post.date | date: '%b %d, %Y' }} )</time></li>
 {% endfor %}
 </ul>
-</div>
-</footer>
-</article>
+</section>
 <div id="disqus_thread"></div>
 <noscript>Please enable JavaScript to view comments.</noscript>
 <a class="dsq-brlink" href="http://disqus.com" rel="nofollow">comments powered by <span class="logo-disqus">Disqus</span></a>
@@ -43,3 +43,5 @@ var jnrbsn_title = '{{ page.title }}';
 var jnrbsn_slug  = '{{ page.url }}';
 var jnrbsn_url   = '{{ site.url }}{{ page.url }}';
 </script>
+</footer>
+</article>
