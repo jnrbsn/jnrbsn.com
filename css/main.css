@@ -489,18 +489,18 @@ body > footer {
         text-overflow: ellipsis;
         white-space: nowrap;
     }
-    .post-list.archive > li {
-        margin-left: 0;
+    .post-list > li > time {
+        margin-left: 1em;
     }
-    .post-list > h3 {
+    #blog-archive > h3 {
         float: none;
         padding: 20px 0;
     }
-    .post-list > h3:first-child {
+    #blog-archive > h3:first-child {
         padding-top: 0;
     }
-    .post-list > li > span {
-        margin-left: 1em;
+    #blog-archive > .post-list > li {
+        margin-left: 0;
     }
     .gravatar {
         height: 100px !important;
