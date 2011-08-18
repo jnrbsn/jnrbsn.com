@@ -6,14 +6,14 @@ and hosted on [Amazon EC2](http://aws.amazon.com/ec2/).
 
 ## LICENSE
 
-The following files and directories (and their contents) are Copyright Jonathan Robson and licensed under a
+The following files, directories, and their contents are Copyright Jonathan Robson and licensed under a
 [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-nc-sa/3.0/).
 
 * _\_posts_
 * _resources_
 * _favicon.ico_
 
-With the following exceptions:
+The exceptions are as follows:
 
 * _comment.png_ — From the [famfamfam.com Silk icon set](http://www.famfamfam.com/lab/icons/silk/)
   licensed under a [Creative Commons Attribution 2.5 License](http://creativecommons.org/licenses/by/2.5/).
@@ -28,7 +28,7 @@ With the following exceptions:
     licensed under a [Creative Commons Attribution-Share Alike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
 * _zce-php5-logo.png_ — Copyright [Zend Technologies Ltd](http://www.zend.com/en/). All rights reserved.
 
-The file _"js/html5.js"_ is Copyright [Remy Sharp](http://remysharp.com/2009/01/07/html5-enabling-script/)
+Also, the file _"js/html5.js"_ is Copyright [Remy Sharp](http://remysharp.com/2009/01/07/html5-enabling-script/)
 and dual licensed under the MIT or GPL Version 2 licenses.
 
 Everything else in this project is licensed under the [MIT License](https://gist.github.com/802399).
