@@ -409,9 +409,9 @@ a.zend-link {
     color: #999;
     display: block;
     font-size: 12px;
-    min-height: 58px;
     line-height: 16px;
     margin-bottom: 10px;
+    min-height: 58px;
     padding: 10px 0 0 140px;
 }
 a.zend-link h4, a.mysql-dev-link h4 {
@@ -423,9 +423,9 @@ a.mysql-dev-link {
     color: #999;
     display: block;
     font-size: 12px;
-    min-height: 60px;
     line-height: 16px;
     margin-bottom: 10px;
+    min-height: 60px;
     padding: 10px 0 0 140px;
 }
 
