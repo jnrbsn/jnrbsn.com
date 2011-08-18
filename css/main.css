@@ -197,27 +197,27 @@ article > footer > p, article > footer > span {
 
 /* Better styles for embedded GitHub Gists */
 
-.gist {
+div.gist {
     font-size: 13px;
     line-height: 18px;
     margin-bottom: 20px;
     width: 100%;
 }
-.gist .gist-file .gist-data {
+div.gist div.gist-file div.gist-data {
     background-color: #f9f9f9 !important;
 }
-.gist pre {
+div.gist pre {
     font-family: Menlo, Monaco, 'Bitstream Vera Sans Mono', 'Courier New', monospace !important;
 }
-.gist-meta {
+div.gist-meta {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 13px !important;
 }
-.gist-meta a {
+div.gist-meta a {
     color: #26a !important;
     text-decoration: none;
 }
-.gist-meta a:hover {
+div.gist-meta a:hover {
     color: #0e4071 !important;
 }
 
@@ -234,17 +234,17 @@ article > footer > p, article > footer > span {
     margin-right: 8px;
     vertical-align: 4px;
 }
-.twitter-share-button {
+iframe.twitter-share-button {
     margin-right: 10px;
 }
-.facebook-like-button {
+iframe.facebook-like-button {
     border: 0;
     height: 20px;
     margin-right: 9px;
     overflow: hidden;
     width: 50px;
 }
-.IN-widget {
+span.IN-widget {
     margin-right: 10px;
 }
 
@@ -256,14 +256,14 @@ article > footer > p, article > footer > span {
 #dsq-content {
     font-size: 13px !important;
 }
-#dsq-content #dsq-global-toolbar, #dsq-content .dsq-login-buttons, #dsq-content .dsq-options,
-#dsq-content #dsq-comments, #dsq-content .dsq-pagination {
+#dsq-content #dsq-global-toolbar, #dsq-content ul.dsq-login-buttons, #dsq-content div.dsq-options,
+#dsq-content #dsq-comments, #dsq-content #dsq-pagination {
     margin-bottom: 20px !important;
 }
-.dsq-tooltip-small {
+div.dsq-tooltip-small {
     width: auto;
 }
-#dsq-content .dsq-login-buttons {
+#dsq-content ul.dsq-login-buttons {
     padding-top: 10px !important;
 }
 #dsq-comment-count {
@@ -275,7 +275,7 @@ article > footer > p, article > footer > span {
 #dsq-footer a > em {
     text-decoration: none !important;
 }
-.dsq-brlink {
+a.dsq-brlink {
     font-size: 13px !important;
 }
 
@@ -297,18 +297,18 @@ article > footer > p, article > footer > span {
     margin-left: .4em;
     white-space: nowrap;
 }
-.post-list {
+ul.post-list {
     font-size: 16px;
     list-style: none;
     margin: 0 0 20px 0;
     padding: 0;
 }
-.post-list > li {
+ul.post-list > li {
     border-bottom: 1px solid #ddd;
     margin: 0 0 5px 0;
     padding: 0 0 5px 0;
 }
-.post-list > li > time {
+ul.post-list > li > time {
     color: #999;
     display: inline-block;
     float: right;
@@ -320,16 +320,16 @@ article > footer > p, article > footer > span {
     color: #999;
     float: left;
 }
-#blog-archive > .post-list {
+#blog-archive > ul.post-list {
     margin-bottom: 0;
 }
-#blog-archive > .post-list > li {
+#blog-archive > ul.post-list > li {
     margin-left: 60px;
 }
-.project-list li {
+div.project-list li {
     padding: 5px 0;
 }
-.project-list h4 {
+div.project-list h4 {
     border-bottom: 1px solid #ddd;
     font-weight: normal;
     margin-bottom: 5px;
@@ -338,13 +338,13 @@ article > footer > p, article > footer > span {
 
 /* About Me page */
 
-.gravatar {
+img.gravatar {
     border: 4px solid #ddd;
     display: block;
     float: right;
     margin: 0 0 20px 20px;
 }
-.social-network-icons a {
+p.social-network-icons a {
     background: url('/resources/social-network-icons.png') no-repeat;
     color: #999;
     display: inline-block;
@@ -359,42 +359,42 @@ article > footer > p, article > footer > span {
     width: 182px;
 }
 a.social-network-icon-delicious {
-    background-position: 5px 5px;
+    background-position: 5px 5px !important;
 }
 a.social-network-icon-twitter {
-    background-position: 5px -373px;
+    background-position: 5px -373px !important;
 }
 a.social-network-icon-github {
-    background-position: 5px -121px;
+    background-position: 5px -121px !important;
 }
 a.social-network-icon-linkedin {
-    background-position: 5px -247px;
+    background-position: 5px -247px !important;
 }
 a.social-network-icon-facebook {
-    background-position: 5px -37px;
+    background-position: 5px -37px !important;
 }
 a.social-network-icon-stumbleupon {
-    background-position: 5px -331px;
+    background-position: 5px -331px !important;
 }
 a.social-network-icon-google {
-    background-position: 5px -163px;
+    background-position: 5px -163px !important;
 }
 a.social-network-icon-flickr {
-    background-position: 5px -79px;
+    background-position: 5px -79px !important;
 }
 a.social-network-icon-lastfm {
-    background-position: 5px -205px;
+    background-position: 5px -205px !important;
 }
 a.social-network-icon-vimeo {
-    background-position: 5px -415px;
+    background-position: 5px -415px !important;
 }
 a.social-network-icon-rss {
-    background-position: 5px -289px;
+    background-position: 5px -289px !important;
 }
-.social-network-icons a:hover {
+p.social-network-icons a:hover {
     background-color: #eee;
 }
-.social-network-icons strong {
+p.social-network-icons strong {
     color: #333;
     display: block;
     font-size: 16px;
@@ -414,7 +414,7 @@ a.zend-link {
     margin-bottom: 10px;
     padding: 10px 0 0 140px;
 }
-.zend-link h4, .mysql-dev-link h4 {
+a.zend-link h4, a.mysql-dev-link h4 {
     color: #333;
     padding-bottom: 5px;
 }
@@ -480,16 +480,13 @@ body > footer {
     #dsq-comment-count {
         background-position: left 1px;
     }
-    .tag-cloud {
-        width: 100%;
-    }
-    .post-list > li {
+    ul.post-list > li {
         color: #26a;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
-    .post-list > li > time {
+    ul.post-list > li > time {
         margin-left: 1em;
     }
     #blog-archive > h3 {
@@ -499,10 +496,10 @@ body > footer {
     #blog-archive > h3:first-child {
         padding-top: 0;
     }
-    #blog-archive > .post-list > li {
+    #blog-archive > ul.post-list > li {
         margin-left: 0;
     }
-    .gravatar {
+    img.gravatar {
         height: 100px !important;
         width: 100px !important;
     }
