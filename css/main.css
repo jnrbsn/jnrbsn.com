@@ -107,7 +107,7 @@ body > header > h1 {
     padding: 0;
 }
 body > header > h1 a {
-    color: #b83000;
+    color: #666;
 }
 body > header > h1 a:hover {
     color: #333;
@@ -119,11 +119,11 @@ body > header > p {
     margin: 0 0 0 15px;
 }
 body > header > nav {
-    bottom: 48px;
+    bottom: 20px;
     color: #666;
     font-weight: bold;
     position: absolute;
-    right: 34px;
+    right: 0;
 }
 body > header > nav > a {
     display: inline-block;
