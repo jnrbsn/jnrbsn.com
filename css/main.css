@@ -81,7 +81,7 @@ blockquote {
     border-left: 4px solid #ddd;
     color: #666;
     font-style: italic;
-    margin: 0 40px;
+    margin: 0 0 20px 40px;
     padding-left: 8px;
 }
 pre, code {
