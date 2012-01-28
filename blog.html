@@ -13,7 +13,7 @@ keywords:
 </p>
 <h2>Blog archive</h2>
 <div id="blog-archive">
-{% capture post_year1 %}{{ 'now' | date: '%Y' }}{% endcapture %}
+{% assign post_year1 = '2011' %}
 <h3>{{ post_year1 }}</h3>
 <ul class="post-list">
 {% for post in site.posts %}
