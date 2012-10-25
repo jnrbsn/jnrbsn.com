@@ -1,39 +1,66 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-us">
 <head>
-<meta charset="UTF-8" />
-<title>{% if page.title != 'Home' %}{{ page.title }} - {% endif %}{{ site.title }}</title>
-<meta name="description" content="{{ page.description }}" />
-<meta name="keywords" content="{{ page.categories | join: ',' }},{{ page.keywords | join: ',' }}" />
-<meta name="author" content="Jonathan Robson" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-<link rel="shortcut icon" href="/resources/favicon.png" />
-<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ site.subscribe }}" />
-<link rel="stylesheet" type="text/css" href="/css/main.css" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 <!--[if lt IE 9]>
-<script type="text/javascript" src="/js/html5.js"></script>
+<meta http-equiv="refresh" content="0;url=/browser-upgrade.html">
 <![endif]-->
+<title>{{ site.title }}{% if page.title != 'Home' %} &middot; {{ page.title }}{% endif %}</title>
+<meta name="description" content="{{ page.description }}">
+<meta name="keywords" content="{{ page.categories | join: ',' }},{{ page.keywords | join: ',' }}">
+<meta name="author" content="Jonathan Robson">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ site.subscribe }}">
+<link rel="stylesheet" href="/assets/css/main.css?h={{ site.cachebust_hash_css }}">
 </head>
 <body>
+
+<div class="container">
+
 <header>
-<h1><a href="/">{{ site.title }}</a></h1>
+<div class="logo"><a href="/"></a></div>
 <nav>
-<a href="/blog.html" title="Read my blog">blog</a> &bull;
-<a href="/about.html" title="About me">about</a> &bull;
-<a href="http://github.com/jnrbsn" title="github.com/jnrbsn" rel="nofollow">github</a> &bull;
-<a href="http://twitter.com/jonathanrobson" title="twitter.com/jonathanrobson" rel="nofollow">twitter</a> &bull;
-<a id="subscribe-link" href="{{ site.subscribe }}" title="Go to my RSS feed" rel="nofollow">subscribe</a>
+<a href="/about.html">about</a>
+<a href="/projects.html">projects</a>
+<a href="{{ site.subscribe }}">subscribe</a>
 </nav>
 </header>
-<div id="main">
+
+<div id="content">
+
 {{ content }}
+
 </div>
+
 <footer>
-<p>Copyright &copy; 2009-{{ 'now' | date: '%Y' }} <a href="/about.html">Jonathan Robson</a>. Some rights reserved.</p>
-<p><a id="cc-logo" title="Creative Commons License" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"></a>
-Except where otherwise <a href="http://github.com/jnrbsn/jnrbsn.com#readme">noted</a>, content on this site is licensed under a<br />
+<p>Copyright &copy; 2009-{{ 'now' | date: '%Y' }} <a href="/about.html">Jonathan Robson</a>. Some&nbsp;rights&nbsp;reserved.</p>
+<p>Except where otherwise <a href="http://github.com/jnrbsn/jnrbsn.com#readme">noted</a>, content on this site is licensed under a
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.</p>
+<p>Powered by <a href="http://jekyllrb.com/">Jekyll</a>, <a href="http://www.cloudflare.com/">CloudFlare</a>, and <a href="http://aws.amazon.com/s3/">Amazon S3</a>.</p>
 </footer>
-<script type="text/javascript" src="/js/main.js"></script>
+
+</div>
+
+<script>
+(function () {
+    function j(u, c) {
+        var h = document.getElementsByTagName('head')[0], s = document.createElement('script');
+        s.async = true; s.src = u;
+        s.onload = s.onreadystatechange = function () {
+            if (!s.readyState || /loaded|complete/.test(s.readyState)) {
+                s.onload = s.onreadystatechange = null; if (h && s.parentNode) { h.removeChild(s) } s = undefined;
+                if (c) { c() }
+            }
+        };
+        h.insertBefore(s, h.firstChild);
+    }
+    window.onload = function () {
+        j('//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js', function () {
+            j('/assets/js/main.js?h={{ site.cachebust_hash_js }}');
+        });
+    };
+})();
+</script>
 </body>
 </html>

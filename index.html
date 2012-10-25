@@ -1,49 +1,32 @@
 ---
 layout: default
 title: Home
-description: Programmer, Mathematician, Technologist, Hacker.
+description: I'm Jonathan Robson — a software engineer living in Kansas City. This is my personal
+  website and blog.
 ---
-<h2>Recent blog posts</h2>
+<p>Hello. I'm Jonathan Robson — a software engineer living in Kansas City. This is my personal website and blog. I don't
+update it very often, but that really doesn't bother me that much. If you're interested, you can read more
+<a href="/about.html">about me</a>, check out some of the open source <a href="/projects.html">projects</a> on which
+I've worked, or read my blog posts below.</p>
+
+<h2>Blog Posts</h2>
 
 <ul class="post-list">
-{% for post in site.posts limit: 8 %}
-<li><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%b %d %Y' }}</time>
-<a href="{{ post.url }}">{{ post.title }}</a></li>
+{% for post in site.posts %}
+<li>
+<time datetime="{{ post.date | date: '%Y-%m-%d' }}">
+<span class="time-long">{{ post.date | date: '%B %d, %Y' }}</span>
+<span class="time-short">{{ post.date | date: '%m/%d/%y' }}</span>
+</time>
+<a href="{{ post.url }}">{{ post.title }}</a>
+</li>
 {% endfor %}
 </ul>
 
-<p>&rarr; <a href="/blog.html">Browse all {{ site.posts | size }} posts</a></p>
+<h2>Categories</h2>
 
-<h2>Open source projects</h2>
-
-<div class="project-list">
-<h4><a title="Bunsen on GitHub" href="https://github.com/jnrbsn/bunsen">Bunsen</a></h4>
-<p>An advanced, object-oriented program execution library for PHP. It is an attempt to combine and
-extend the functionality of PHP's built-in program execution functions (i.e. exec, shell_exec,
-system, passthru, etc.) to give you extremely flexible, yet extremely precise and consistent control
-over input/output, timing, piping, exit codes, etc. It is meant to be a simple, yet comprehensive
-library for executing (and interacting with) external programs in a UNIX/Linux environment.</p>
-
-<h4><a title="CFPG on GitHub" href="https://github.com/jnrbsn/cfpg">Carpus Friendly Password Generator</a></h4>
-<p>Uses a quantitative typing effort model to generate secure passwords that are measurably
-easy-to-type (a.k.a. <a href="http://en.wikipedia.org/wiki/Carpus" rel="nofollow">carpus</a>
-friendly) on standard QWERTY keyboards. It works by generating a random password, and then replacing
-random characters until the overall typing effort of the password is below the desired value.
-There's currently a <a href="http://jnrbsn.github.com/cfpg">web interface</a> written in JavaScript
-(in the gh-pages branch of the git repository) and a PHP function for integration with your apps (in
-the master branch). I plan on porting it to other language as time allows. if you want to contribute
-a port in an additional language, you can fork the <a href="https://github.com/jnrbsn/cfpg">GitHub
-project</a> and submit a pull request.</p>
-
-<h4><a title="Rowlf on GitHub" href="https://github.com/jnrbsn/rowlf">Rowlf</a></h4>
-<p>A PHP coding standard that can be used with PHP_CodeSniffer to validate PHP files and detect
-violations in coding style. For now, it's basically a combination of the PEAR and Squiz coding
-standards with a few tweaks here and there.</p>
-
-<h4><a title="srch4.it on GitHub" href="https://github.com/jnrbsn/srch4.it">srch4.it</a></h4>
-<p>A simple, fast, intuitive search engine written in pure JavaScript and powered by the Google Web
-Search API. See the <a href="https://github.com/jnrbsn/srch4.it#readme">README on GitHub</a> for
-details. A live demo is available at &lt;<a href="http://srch4.it">http://srch4.it</a>&gt;.</p>
-</div>
-
-<p>&rarr; See more at <a href="http://github.com/jnrbsn">github.com/jnrbsn</a></p>
+<p class="category-list">
+{% for category in site.sorted_categories %}
+<a href="/category/{{ category[0] }}">#{{ category[0] }}</a>&nbsp;({{ category[1] }}){% if forloop.rindex0 > 0 %},{% endif %}
+{% endfor %}
+</p>

@@ -1,48 +1,41 @@
 ---
 layout: default
 ---
-<p id="breadcrumbs">
-<a href="/">Home</a>
-&rsaquo; <a href="/blog.html">Blog archive</a>
-&rsaquo; {{ page.title }}
-</p>
 <article>
 <header>
-<h2><a title="Permalink to {{ page.title }}" href="{{ site.url }}{{ page.url }}">{{ page.title }}</a></h2>
-Posted by <a href="/about.html">Jonathan Robson</a>
-on <time datetime="{{ page.date | date: '%Y-%m-%d' }}" pubdate="pubdate">{{ page.date | date_to_string }}</time>
-in Kansas City, MO
-— <a id="dsq-comment-count" data-disqus-identifier="{{ page.url }}" href="{{ page.url }}#disqus_thread">0 comments</a>
-</header>
-{{ content }}
-<footer>
-<span id="share-buttons-label">Share this:</span><div id="share-buttons"></div>
-<p id="like-and-subscribe">Liked this post? Subscribe to my <a href="{{ site.subscribe }}" rel="nofollow">RSS feed</a>.</p>
-<p id="categories">Categories:&nbsp; {% for category in page.categories %}<a href="/category/{{ category }}">#{{ category }}</a>&nbsp; {% endfor %}</p>
-<div id="author-blurb">
-<img alt="Gravatar image" height="100" width="100" src="http://www.gravatar.com/avatar/08557ea48b0f92938bb0c01356ad606e?s=100" />
-<strong>About the author:</strong>
-Jonathan Robson is a software developer, a mathematician, a technologist, and a hacker with an
-expertise in high end, database driven web development as well as Linux server administration,
-scripting, and automation. <a href="/about.html">Read more &rarr;</a>
-<a href="http://twitter.com/jonathanrobson" class="twitter-follow-button" data-show-count="false">Follow @jonathanrobson</a>
+<div class="meta">
+<time datetime="{{ page.date | date: '%Y-%m-%d' }}">
+<span class="time-long">{{ page.date | date: '%B %d, %Y' }}</span>
+<span class="time-short">{{ page.date | date: '%b %d, %Y' }}</span>
+</time>
 </div>
-<section id="related-posts">
-<h3>Related posts</h3>
+<nav>
+{% if page.previous %}<a rel="prev" href="{{ page.previous.url }}">&larr; previous</a>{% endif %}
+{% if page.next %}<a rel="next" href="{{ page.next.url }}">next &rarr;</a>{% endif %}
+</nav>
+<h2>{{ page.title }}</h2>
+</header>
+
+{{ content }}
+
+<footer>
+<p>Liked this post? Subscribe to my <a href="{{ site.subscribe }}" rel="nofollow">RSS feed</a>.</p>
+<p id="share-buttons" data-page-title="{{ page.title }}" data-page-url="{{ site.url }}{{ page.url }}"></p>
+<p>Categories:&nbsp; {% for category in page.categories %}<a href="/category/{{ category }}">#{{ category }}</a>&nbsp; {% endfor %}</p>
+<h6>Related posts</h6>
 <ul>
 {% for post in page.related %}
-<li><a href="{{ post.url }}">{{ post.title }}</a> <time datetime="{{ post.date | date: '%Y-%m-%d' }}">( {{ post.date | date: '%b %d, %Y' }} )</time></li>
+<li><a href="{{ post.url }}">{{ post.title }}</a> <time datetime="{{ post.date | date: '%Y-%m-%d' }}">(&nbsp;{{ post.date | date: '%B %d, %Y' }}&nbsp;)</time></li>
 {% endfor %}
 </ul>
-</section>
-<div id="disqus_thread"></div>
-<noscript>Please enable JavaScript to view comments.</noscript>
-<a class="dsq-brlink" href="http://disqus.com" rel="nofollow">comments powered by <span class="logo-disqus">Disqus</span></a>
-<script type="text/javascript">
-/* Define title and URL for use with share buttons, Disqus, etc. */
-var jnrbsn_title = '{{ page.title }}';
-var jnrbsn_slug  = '{{ page.url }}';
-var jnrbsn_url   = '{{ site.url }}{{ page.url }}';
-</script>
+<a href="#" data-scroll-to="0">back to top &uarr;</a>
 </footer>
+<div id="disqus_thread"></div>
+<script>
+var disqus_identifier = '{{ page.url }}',
+    disqus_title      = '{{ page.title }}',
+    disqus_url        = '{{ site.url }}{{ page.url }}';
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </article>
