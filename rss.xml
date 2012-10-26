@@ -6,7 +6,7 @@ layout: none
 <channel>
 <title>{{ site.title }}</title>
 <link>{{ site.url }}/</link>
-<description>I'm a programmer and a mathematician. This is my blog.</description>
+<description>I'm Jonathan Robson — a software engineer living in Kansas City. This is my personal website and blog.</description>
 <language>en-us</language>
 {% for post in site.posts limit: 10 %}
 <item>

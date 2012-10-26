@@ -46,7 +46,7 @@ Functions used:
 * `MySQLi::query()`
 * `PDO::exec()`
 
-![insert_regular](/resources/2010/06/mysqli-vs-pdo-benchmarks/insert_regular.png)
+![insert_regular](/assets/posts/2010/06/mysqli-vs-pdo-benchmarks/insert_regular.png)
 
 ### Test #2: Create a table and insert 1000 rows with prepared statements
 
@@ -59,7 +59,7 @@ Functions used:
 With the "PDO (emulated)" test, prepared statements were emulated by setting the
 `PDO::ATTR_EMULATE_PREPARES` attribute to `true` using `PDO::setAttribute()`.
 
-![insert_prepared](/resources/2010/06/mysqli-vs-pdo-benchmarks/insert_prepared.png)
+![insert_prepared](/assets/posts/2010/06/mysqli-vs-pdo-benchmarks/insert_prepared.png)
 
 ### Test #3: 100 selects using a "LIKE" string comparison
 
@@ -68,7 +68,7 @@ Functions used:
 * `MySQLi::query()`, `MySQLi_Result::fetch_array()`, and `MySQLi_Result::free()`
 * `PDO::query()` and `PDOStatement::fetch()`
 
-![select_regular](/resources/2010/06/mysqli-vs-pdo-benchmarks/select_regular.png)
+![select_regular](/assets/posts/2010/06/mysqli-vs-pdo-benchmarks/select_regular.png)
 
 ### Test #4: 100 selects using a "LIKE" string comparison with prepared statements
 
@@ -82,7 +82,7 @@ Functions used:
 With the "PDO (emulated)" test, prepared statements were emulated by setting the
 `PDO::ATTR_EMULATE_PREPARES` attribute to `true` using `PDO::setAttribute()`.
 
-![select_prepared](/resources/2010/06/mysqli-vs-pdo-benchmarks/select_prepared.png)
+![select_prepared](/assets/posts/2010/06/mysqli-vs-pdo-benchmarks/select_prepared.png)
 
 ### Conclusion
 

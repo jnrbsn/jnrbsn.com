@@ -11,6 +11,10 @@ layout: none
         <loc>{{ site.url }}/about.html</loc>
         <priority>0.6</priority>
     </url>
+    <url>
+        <loc>{{ site.url }}/projects.html</loc>
+        <priority>0.6</priority>
+    </url>
     {% for post in site.posts %}
     <url>
         <loc>{{ site.url }}{{ post.url }}</loc>

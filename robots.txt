@@ -3,8 +3,7 @@ layout: none
 ---
 User-agent: *
 Disallow: /category/
-Disallow: /css/
-Disallow: /js/
-Disallow: /resources/
+Disallow: /assets/
+Disallow: /browser-upgrade.html
 
 Sitemap: {{ site.url }}/sitemap.xml

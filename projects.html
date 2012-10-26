@@ -1,0 +1,32 @@
+---
+layout: default
+title: Projects
+description: This page is a small sample of some open source projects that I've worked on recently.
+---
+<h2>Projects</h2>
+<p>This page is a small sample of some open source projects that I've worked on recently.</p>
+<h3>My GitHub Repositories</h3>
+<ul id="github-repos" class="loading">
+<li>Loading GitHub repositories... If it fails to load,
+<a href="https://github.com/jnrbsn">click here</a> to see my GitHub profile.</li>
+</ul>
+<script>
+function loadGithubRepos (repos) {
+    var i, l = repos.data.length, html = '', ul = document.getElementById('github-repos');
+    repos.data.sort(function(a, b) { return (a.name < b.name ? -1 : (a.name > b.name ? 1 : 0)) });
+    for (i = 0; i < l; i++) {
+        if (repos.data[i].fork || repos.data[i].name == 'toolbox') { continue }
+        html += '<li><a href="' + repos.data[i].html_url + '" target="_blank">' + repos.data[i].name + '</a>';
+        if (repos.data[i].description != '') { html += ': ' + repos.data[i].description }
+        html += '</li>';
+    }
+    ul.removeAttribute('class'); ul.innerHTML = html;
+}
+</script>
+<script src="https://api.github.com/users/jnrbsn/repos?callback=loadGithubRepos"></script>
+<h3>Other Open Source Projects to Which I've Contributed</h3>
+<ul>
+<li><a href="https://github.com/cakephp/cakephp/commits?author=jnrbsn">CakePHP</a></li>
+<li><a href="https://github.com/moodle/moodle/commit/4125bdc139eb659595fd6d017c8ae083041fb262">Moodle</a></li>
+<li><a href="https://github.com/squizlabs/PHP_CodeSniffer/commits?author=jnrbsn">PHP_CodeSniffer</a></li>
+</ul>

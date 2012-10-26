@@ -33,11 +33,11 @@ more average the county.
 
 Below, I've listed the top ten most demographically average counties in the US. If you're interested
 in a breakdown of all of the demographics for these counties,
-[click here](/resources/2010/11/census_table_average_counties.html) to see them all in one big
-table. Keep in mind, when looking at this data, that this does _not_ represent the average person
-nor the area in which they live. These are average _places_ based on demographics. More than 50% of
-people in the US live in less than 5% of the counties in the US (none of which are even close to any
-of the averages).
+[click here](/assets/posts/2010/11/the-most-demographically-average-counties-in-the-us/details.html)
+to see them all in one big table. Keep in mind, when looking at this data, that this does _not_
+represent the average person nor the area in which they live. These are average _places_ based on
+demographics. More than 50% of people in the US live in less than 5% of the counties in the US (none
+of which are even close to any of the averages).
 
 1. El Paso, Colorado
 1. Fairfield, Ohio

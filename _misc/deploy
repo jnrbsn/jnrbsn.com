@@ -1,0 +1,212 @@
+#!/usr/bin/env node
+
+
+// Include global modules.
+var fs = require('fs'),
+    spawn = require('child_process').spawn,
+    crypto = require('crypto'),
+    aws = require('aws2js');
+
+
+var deploy = {
+
+    s3auth: require(__dirname + '/s3auth.json'),
+
+    source: __dirname + '/..',
+
+    dest: process.argv[2],
+
+    sitePath: __dirname + '/../_site',
+
+    meta: {
+        'css': {
+            'cache-control': 'public, max-age=604800',
+            'content-type': 'text/css; charset=utf-8',
+        },
+        'gif': {
+            'cache-control': 'public, max-age=604800',
+            'content-type': 'image/gif',
+        },
+        'html': {
+            'content-type': 'text/html; charset=utf-8',
+        },
+        'ico': {
+            'cache-control': 'public, max-age=2592000',
+            'content-type': 'image/x-icon',
+        },
+        'js': {
+            'cache-control': 'public, max-age=604800',
+            'content-type': 'application/javascript; charset=utf-8',
+        },
+        'png': {
+            'cache-control': 'public, max-age=604800',
+            'content-type': 'image/png',
+        },
+        'txt': {
+            'cache-control': 'no-cache',
+            'content-type': 'text/plain; charset=utf-8',
+        },
+        'xml': {
+            'cache-control': 'no-cache',
+            'content-type': 'text/xml; charset=utf-8',
+        },
+    },
+
+    s3: null,
+
+    init: function () {
+        if (!this.dest) {
+            throw new Error('No destination specified.');
+        }
+
+        this.s3 = aws.load('s3', this.s3auth.accessKeyId, this.s3auth.secretAccessKey);
+        this.s3.setBucket(this.dest);
+    },
+
+    run: function () {
+        this.init();
+
+        this.generateSite(function () {
+            this.putAllFiles();
+            this.cleanS3Files();
+        });
+    },
+
+    generateSite: function (callback) {
+        var jekyllBuild = (function () {
+            spawn(
+                'jekyll',
+                ['--url', 'http://' + this.dest],
+                { cwd: this.source, stdio: 'inherit' }
+            ).on('exit', (function (code) {
+                if (code !== 0) {
+                    process.exit(code);
+                }
+
+                callback.apply(this);
+            }).bind(this));
+        }).bind(this);
+
+        fs.exists(this.sitePath, (function (exists) {
+            if (exists) {
+                spawn('rm', ['-r', this.sitePath], { stdio: 'inherit' }).on('exit', function (code) {
+                    if (code !== 0) {
+                        process.exit(code);
+                    }
+
+                    jekyllBuild();
+                });
+            } else {
+                jekyllBuild();
+            }
+        }).bind(this));
+    },
+
+    md5File: function (file) {
+        return crypto.createHash('md5').update(fs.readFileSync(file)).digest('hex');
+    },
+
+    putFile: function (file) {
+        var basename = file.substr(file.lastIndexOf('/') + 1),
+            extension = basename.substr(basename.lastIndexOf('.') + 1),
+            s3Path = file.substr(this.sitePath.length),
+            directory = file.substring(0, file.lastIndexOf('/')),
+            meta = this.meta[extension],
+            etag = '"' + this.md5File(file) + '"';
+
+        if (typeof(meta) === 'undefined') {
+            throw new Error('No meta data defined for file extension "' + extension + '"');
+        }
+
+        if (basename === 'index.html' && fs.readdirSync(directory).length === 1) {
+            s3Path = s3Path.substring(0, s3Path.lastIndexOf('/'));
+        }
+
+        this.s3.head(s3Path, (function (err, result) {
+            if ((err && err.code) === 404 || (result && result.etag !== etag)) {
+                this.s3.putFile(s3Path, file, 'public-read', meta, function (err, result) {
+                    if (err) {
+                        console.log('!!! ' + s3Path);
+                        throw err;
+                    }
+
+                    console.log('PUT ' + s3Path);
+                });
+            } else if (err) {
+                console.log('!!! ' + s3Path);
+                throw err;
+            } else {
+                console.log('=== ' + s3Path);
+            }
+        }).bind(this));
+    },
+
+    putAllFiles: function () {
+        // http://stackoverflow.com/questions/5827612/node-js-fs-readdir-recursive-directory-search
+        var walk = function(dir, done) {
+            var results = [];
+            fs.readdir(dir, function(err, list) {
+                if (err) {
+                    return done(err);
+                }
+                var i = 0;
+                (function next() {
+                    var file = list[i++];
+                    if (!file) {
+                        return done(null, results);
+                    }
+                    file = dir + '/' + file;
+                    fs.stat(file, function(err, stat) {
+                        if (stat && stat.isDirectory()) {
+                            walk(file, function(err, res) {
+                                results = results.concat(res);
+                                next();
+                            });
+                        } else {
+                            results.push(file);
+                            next();
+                        }
+                    });
+                })();
+            });
+        };
+
+        walk(this.sitePath, (function (err, files) {
+            var i, numFiles = files.length;
+            for (i = 0; i < numFiles; i++) {
+                this.putFile(files[i]);
+            }
+        }).bind(this));
+    },
+
+    cleanS3Files: function () {
+        var self = this;
+
+        self.s3.get('?prefix=', 'xml', function (err, data) {
+            if (err) {
+                throw err;
+            }
+
+            var i, numFiles = (data.Contents ? data.Contents.length : 0);
+
+            for (i = 0; i < numFiles; i++) {
+                (function (s3Path) {
+                    fs.stat(self.sitePath + s3Path, function (err, stats) {
+                        if (err && err.errno === 34) {
+                            self.s3.del(s3Path, function (err, result) {
+                                if (err) {
+                                    throw err;
+                                }
+
+                                console.log('DEL ' + s3Path);
+                            });
+                        }
+                    });
+                })('/' + data.Contents[i].Key);
+            }
+        });
+    },
+
+};
+
+deploy.run();
