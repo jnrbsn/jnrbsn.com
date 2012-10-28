@@ -1,11 +1,18 @@
+var _gaq = [['_setAccount', 'UA-17389688-3'], ['_trackPageview']];
+
 if (typeof(disqus_identifier) !== 'undefined') {
-    var disqus_developer = (window.location.hostname === 'localhost' ? 1 : 0),
+    var disqus_developer = (window.location.hostname === 'jnrbsn.com' ? 0 : 1),
         disqus_shortname = 'jnrbsn';
 }
 
 $(function () {
 
     $.ajaxSetup({cache: true});
+
+    // Load Google Analytics.
+    if (window.location.hostname === 'jnrbsn.com') {
+        $.getScript('http://www.google-analytics.com/ga.js');
+    }
 
     // Load gists asynchronously.
     $('a[data-gist]').each(function () {
@@ -22,6 +29,7 @@ $(function () {
         });
     });
 
+    // Load share buttons.
     if ($('#share-buttons').length) {
         (function () {
             var $shareButtons = $('#share-buttons'),
