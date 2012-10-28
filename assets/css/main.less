@@ -496,6 +496,22 @@ div.gist {
 .time-short {
     display: none;
 }
+.old-ie-overlay {
+    background-color: @white;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1010;
+}
+// IE 6 Hack
+* .old-ie-overlay {
+    bottom: auto;
+    height: 10000px;
+    position: absolute;
+    width: 100%;
+}
 
 // Retina Displays
 // ==========================================
