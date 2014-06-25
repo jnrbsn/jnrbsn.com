@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;url=http://jnrbsn.github.io/browser-upgrade/">
+    <style>body{display:none;}</style>
+    <![endif]-->
+    <title>{{ site.title }}{% if page.title != 'index' %} / {{ page.title }}{% endif %}</title>
+    <meta name="description" content="{{ page.description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700,400italic,600italic,700italic">
+    <link rel="stylesheet" href="/vendor/fontello/css/fontello.css?rev={{ site.github.build_revision }}">
+    <link rel="stylesheet" href="/vendor/fontello/css/animation.css?rev={{ site.github.build_revision }}">
+    <link rel="stylesheet" href="/assets/css/main.css?rev={{ site.github.build_revision }}">
+</head>
+<body>
+
+    <div class="container">
+
+        <header><h1><a href="/">jnrbsn<i class="dot-head">.</i>com</a></h1></header>
+
+        <div class="navigation">
+            <ul>
+                <li><a href="/"><i class="icon-info-circled"></i><span>about</span></a></li>
+                <li><a href="/projects.html"><i class="icon-wrench"></i><span>projects</span></a></li>
+                <li><a href="https://github.com/jnrbsn"><i class="icon-github-circled"></i><span>github</span></a></li>
+                <li><a href="https://twitter.com/jonathanrobson"><i class="icon-twitter"></i><span>twitter</span></a></li>
+                <li><a href="https://www.linkedin.com/in/jnrbsn"><i class="icon-linkedin-squared"></i><span>linkedin</span></a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            {{ content }}
+        </div>
+
+        <footer>
+            <p><i class="icon-cc"></i>&nbsp;2009&ndash;{{ site.time | date: '%Y' }}&nbsp;&nbsp;Jonathan&nbsp;Robson</p>
+            <p>
+                <a class="creative-commons" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+                    <i class="icon-cc-by"></i>
+                    <i class="icon-cc-nc"></i>
+                    <i class="icon-cc-sa"></i>
+                </a>
+            </p>
+        </footer>
+
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/vendor/autolinker/Autolinker.min.js?rev={{ site.github.build_revision }}"></script>
+    <script src="/assets/js/main.js?rev={{ site.github.build_revision }}"></script>
+
+</body>
+</html>

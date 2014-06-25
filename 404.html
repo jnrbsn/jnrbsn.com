@@ -1,0 +1,19 @@
+---
+layout: default
+title: 404 Not Found
+---
+
+<script>
+// Redirect blog URLs to archive of old abandoned blog.
+if (/\/20\d\d\/\d\d\//.test(window.location.pathname)) {
+    window.location.href = 'http://archive.jnrbsn.com' + window.location.pathname;
+}
+</script>
+
+<div class="not-found">
+
+    <h2>404 Not Found</h2>
+
+    <img src="/assets/img/not-found.gif">
+
+</div>
