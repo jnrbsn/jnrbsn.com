@@ -12,6 +12,7 @@ $(function () {
                 dt, dd, link, meta;
 
             if (typeof repos.data.message !== 'undefined') {
+                // Handle API errors.
                 $projects.html(
                     '<p style="color:#c00;"><strong>GitHub API Error:</strong> ' +
                         repos.data.message + '</p>'
@@ -22,6 +23,7 @@ $(function () {
                 return;
             }
 
+            // Sort by forks + stargazers, then by date.
             repos.data.sort(function (repoA, repoB) {
                 var networkRepoA = repoA.forks_count + repoA.stargazers_count,
                     networkRepoB = repoB.forks_count + repoB.stargazers_count,
@@ -56,6 +58,7 @@ $(function () {
                 dd = document.createElement('dd');
                 dd.innerHTML = Autolinker.link(repos.data[i].description);
 
+                // Repos updated in the last year are considered active.
                 if (now - Date.parse(repos.data[i].pushed_at) < 31557600000) {
                     projectsActive.appendChild(dt);
                     projectsActive.appendChild(dd);
