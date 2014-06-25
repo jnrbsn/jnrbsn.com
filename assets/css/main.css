@@ -141,10 +141,11 @@ h1 > a > .dot-head {
     background: url("/assets/img/head-logo.svg") no-repeat 0 9px;
     background-size: 32px 32px;
     display: inline-block;
-    font-size: 0;
     margin: 0 5px;
+    overflow: hidden;
     position: relative;
-    top: -14px;
+    text-indent: -100px;
+    top: 11px;
     width: 32px;
     -webkit-transition: all .5s;
     transition: all .5s;
