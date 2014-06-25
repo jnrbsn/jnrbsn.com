@@ -74,6 +74,11 @@ $(function () {
         });
     }
 
+    // Fix scrolling issue on Mobile Safari.
+    if ($(window).width() < 768) {
+        $(window).scrollTop(0);
+    }
+
     // Make external links open in a new tab/window.
     (function () {
         var urlRegExp = new RegExp('^(\/|(https?:)?\/\/' + window.location.host + ')');

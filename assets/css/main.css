@@ -355,8 +355,8 @@ a.creative-commons:hover {
 
 @media only screen and (max-width: 600px) {
     h1 {
-        margin-bottom: 25px;
-        margin-top: 25px;
+        margin-bottom: 0;
+        margin-top: 0;
     }
 
     .content {
@@ -419,7 +419,7 @@ a.creative-commons:hover {
 
     h1 > a > .dot-head {
         background-size: 26px 26px;
-        top: -8px;
+        height: 26px;
         width: 26px;
     }
 
