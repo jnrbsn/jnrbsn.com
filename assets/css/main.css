@@ -138,14 +138,13 @@ h1 > a:hover {
 }
 
 h1 > a > .dot-head {
-    background: url("/assets/img/head-logo.svg") no-repeat 0 9px;
+    background: url("/assets/img/head-logo.svg") no-repeat;
     background-size: 32px 32px;
     display: inline-block;
-    margin: 0 5px;
+    height: 32px;
+    margin: 0 5px -2px;
     overflow: hidden;
-    position: relative;
     text-indent: -100px;
-    top: 11px;
     width: 32px;
     -webkit-transition: transform .5s;
     -moz-transition: transform .5s;
