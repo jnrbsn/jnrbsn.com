@@ -41,7 +41,7 @@ a:hover {
 h1 {
     font-size: 50px;
     line-height: 50px;
-    margin: 50px 0;
+    margin: 25px 0;
     padding: 0;
 }
 
@@ -116,7 +116,7 @@ h1 > a:visited {
     display: inline-block;
     font-weight: 700;
     line-height: 50px;
-    padding: 0 10px;
+    padding: 25px 15px;
     transition: color .5s ease-in-out;
 }
 
@@ -147,8 +147,9 @@ h1 > a > .dot-head {
     text-indent: -100px;
     top: 11px;
     width: 32px;
-    -webkit-transition: all .5s;
-    transition: all .5s;
+    -webkit-transition: transform .5s;
+    -moz-transition: transform .5s;
+    transition: transform .5s;
 }
 
 h1 > a:hover > .dot-head {
